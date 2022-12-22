@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Lists" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--    Primary    -->
+        <item name="colorPrimary">@color/material_dynamic_primary80</item>
+        <item name="colorOnPrimary">@color/material_dynamic_primary20</item>
+        <item name="colorPrimaryContainer">@color/material_dynamic_primary30</item>
+        <item name="colorOnPrimaryContainer">@color/material_dynamic_primary90</item>
+        <!--    Secondary    -->
+        <item name="colorSecondary">@color/material_dynamic_secondary80</item>
+        <item name="colorOnSecondary">@color/material_dynamic_secondary20</item>
+        <item name="colorSecondaryContainer">@color/material_dynamic_secondary30</item>
+        <item name="colorOnSecondaryContainer">@color/material_dynamic_secondary90</item>
+        <!--    Tertiary    -->
+        <item name="colorTertiary">@color/material_dynamic_tertiary80</item>
+        <item name="colorOnTertiary">@color/material_dynamic_tertiary20</item>
+        <item name="colorTertiaryContainer">@color/material_dynamic_tertiary30</item>
+        <item name="colorOnTertiaryContainer">@color/material_dynamic_tertiary90</item>
+        <!--    Background    -->
+        <item name="android:colorBackground">@color/material_dynamic_neutral10</item>
+        <item name="colorOnBackground">@color/material_dynamic_neutral90</item>
+        <item name="colorSurface">@color/material_dynamic_neutral10</item>
+        <item name="colorOnSurface">@color/material_dynamic_neutral90</item>
+        <item name="colorSurfaceVariant">@color/material_dynamic_neutral_variant30</item>
+        <item name="colorOnSurfaceVariant">@color/material_dynamic_neutral_variant80</item>
+        <item name="colorOutline">@color/material_dynamic_neutral_variant60</item>
+
+        <!-- Status bar color. -->
+            <item name="android:statusBarColor">@color/transparent</item>
+        <!--    Navbar    -->
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

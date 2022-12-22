@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="categories">Categorie</string>
+    <string name="no_categories_error">Non ci sono categorie!</string>
+    <string name="create_note">Crea una nota</string>
+    <string name="edit_categories">Modifica categorie</string>
+    <string name="create_category">Crea una categoria</string>
+    <string name="add">Aggiungi</string>
+    <string name="cancel">Cancella</string>
+    <string name="confirm_deleting_note">Vuoi eliminare la nota</string>
+    <string name="change_category">Cambia categoria</string>
+    <string name="delete">Elimina</string>
+    <string name="edit_note">Modifica nota</string>
+    <string name="edit">Modifica</string>
+    <string name="confirm_deleting_category">Vuoi eliminare la categoria</string>
+    <string name="edit_category">Modifica categoria</string>
+</resources>
