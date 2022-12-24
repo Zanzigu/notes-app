@@ -19,7 +19,7 @@ class ViewPagerAdapter(
 
     private var categoryList = emptyList<NotesCategory>()
     private var noteAdapters = listOf<RecyclerViewAdapter>()
-    private var noteList = listOf<Note>()
+    private var allNotes = listOf<Note>()
 
     inner class ViewPagerViewHolder(val binding: FragmentRecyclerviewnotesBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -35,7 +35,7 @@ class ViewPagerAdapter(
         val rvNotes = holder.binding.rvNotes
         rvNotes.adapter = noteAdapters.last()
         rvNotes.layoutManager = LinearLayoutManager(context)
-        noteAdapters.last().setData(noteList)
+        noteAdapters.last().setData(allNotes)
 
         getITH(adapter).attachToRecyclerView(rvNotes)
 
@@ -57,7 +57,7 @@ class ViewPagerAdapter(
         return null
     }
     fun setNotes(newNotesList: List<Note>) {
-        this.noteList = newNotesList
+        this.allNotes = newNotesList
         for (noteAdapter in noteAdapters) {
             noteAdapter.setData(newNotesList)
         }
@@ -70,18 +70,23 @@ class ViewPagerAdapter(
                 ItemTouchHelper.UP or ItemTouchHelper.DOWN,
                 0
             ) {
+                private lateinit var notes: List<Note>
+
                 override fun onMove(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder
                 ): Boolean {
+                    if (!this::notes.isInitialized)
+                        notes = adapter.getData()
+
                     // swap notes pos
                     val fromPos = viewHolder.adapterPosition
                     val toPos = target.adapterPosition
 
-                    Collections.swap(noteList, fromPos, toPos)
+                    Collections.swap(notes, fromPos, toPos)
 
-                    for (i in noteList.indices) {
-                        noteList[i].pos = i
+                    for (i in notes.indices) {
+                        notes[i].pos = i
                     }
 
                     adapter.notifyItemMoved(fromPos, toPos)
@@ -94,7 +99,9 @@ class ViewPagerAdapter(
                 ) {
                     super.clearView(recyclerView, viewHolder)
 
-                    myNoteViewModel.updateNotes(noteList)
+                    // update DB only if there has been changes
+                    if (this::notes.isInitialized)
+                        myNoteViewModel.updateNotes(notes)
                 }
 
 

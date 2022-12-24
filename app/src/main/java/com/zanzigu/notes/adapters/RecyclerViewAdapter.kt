@@ -138,4 +138,8 @@ class RecyclerViewAdapter (
 
         notifyDataSetChanged()
     }
+
+    fun getData(): List<Note> {
+        return noteList
+    }
 }
