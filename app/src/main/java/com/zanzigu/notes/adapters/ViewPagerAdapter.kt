@@ -30,7 +30,7 @@ class ViewPagerAdapter(
 
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         val adapter = RecyclerViewAdapter(categoryList[position].categoryID, myNoteViewModel)
-        noteAdapters += adapter
+        noteAdapters = noteAdapters + adapter
 
         val rvNotes = holder.binding.rvNotes
         rvNotes.adapter = noteAdapters.last()
@@ -38,7 +38,6 @@ class ViewPagerAdapter(
         noteAdapters.last().setData(allNotes)
 
         getITH(adapter).attachToRecyclerView(rvNotes)
-
     }
 
     override fun getItemCount(): Int {
@@ -76,7 +75,7 @@ class ViewPagerAdapter(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder
                 ): Boolean {
-                    if (!this::notes.isInitialized)
+//                    if (!this::notes.isInitialized)
                         notes = adapter.getData()
 
                     // swap notes pos
